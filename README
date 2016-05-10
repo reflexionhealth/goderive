@@ -1,0 +1,18 @@
+This tool extends `go generate` by detecting type and function declarations
+preceded by a comment like "[Derive(MyTrait)]", and providing a higher-level
+library to generate code for those declarations.
+
+     $ go get github.com/reflexionhealth/goderive
+
+The "github.com/goderive/traits" package provides some example code generators,
+which can be used to experiment with goderive.
+
+    package slices
+
+    //go:generate goderive Unique=github.com/reflexion/goderive/traits/unique
+
+    // [Derive(Unique)]
+    type Integers []int
+
+    // [Derive(Unique)]
+    type Strings []string
