@@ -70,6 +70,11 @@ func (t *Targets) Visit(node ast.Node) ast.Visitor {
 			t.Nodes = append(t.Nodes, node)
 			return nil
 		}
+	case *ast.FuncDecl:
+		if t.Include(n.Name.Name) {
+			t.Nodes = append(t.Nodes, node)
+			return nil
+		}
 	}
 	return t
 }

@@ -105,7 +105,6 @@ func parseDerive(decl ast.Decl) (string, []string) {
 		name = d.Name.Name
 		comments = d.Doc
 	case *ast.GenDecl:
-		// FIXME: Remove this hack (make it more generic!)
 		if d.Tok == token.TYPE {
 			name = d.Specs[0].(*ast.TypeSpec).Name.Name
 			comments = d.Doc
