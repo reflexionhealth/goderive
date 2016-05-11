@@ -95,7 +95,7 @@ func main() {
 	}
 }
 
-var matchDerive = regexp.MustCompile(`\[Derive\(([^)]+)\)\]`)
+var matchDerive = regexp.MustCompile(`\[deriving\(([^)]+)\)\]`)
 
 func parseDerive(decl ast.Decl) (string, []string) {
 	var name string

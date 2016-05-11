@@ -2,8 +2,8 @@ package examples
 
 //go:generate goderive Unique=github.com/reflexionhealth/goderive/traits/unique
 
-// [Derive(Unique)]
+// [deriving(Unique)]
 type Integers []int
 
-// [Derive(Unique)]
+// [deriving(Unique)]
 type Strings []string
