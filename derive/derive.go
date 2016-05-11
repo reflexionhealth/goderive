@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"go/ast"
 	"go/parser"
+	"go/printer"
 	"go/token"
 	"html/template"
 	"io"
@@ -98,6 +99,12 @@ func (t *Targets) WriteEach(file string, transform func(io.Writer, ast.Node)) {
 		log.Fatalf("can't format generated code: %s\n", err)
 	}
 	ioutil.WriteFile(file, out, 0600)
+}
+
+func (t *Targets) FormatNode(node ast.Node) string {
+	var buf bytes.Buffer
+	printer.Fprint(&buf, t.FileSet, node)
+	return buf.String()
 }
 
 func Assert(ok bool, format string, args ...interface{}) {

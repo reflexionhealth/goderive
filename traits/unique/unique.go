@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bytes"
 	"go/ast"
-	"go/printer"
 	"io"
 
 	"github.com/reflexionhealth/goderive/derive"
@@ -37,11 +35,9 @@ func main() {
 		typ := typeSpec.Name.Name
 
 		// get the element type as a string
-		var buf bytes.Buffer
 		arrayType, ok := typeSpec.Type.(*ast.ArrayType)
 		derive.Assert(ok, `Cannot derive "Unique" for non-array/non-slice types`)
-		printer.Fprint(&buf, targets.FileSet, arrayType.Elt)
-		subtype := buf.String()
+		subtype := targets.FormatNode(arrayType.Elt)
 
 		// output the template
 		derive.Template(out, Data{typ, subtype}, Template)
