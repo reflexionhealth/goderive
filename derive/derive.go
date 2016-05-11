@@ -53,7 +53,7 @@ func Load() *Targets {
 	return targets
 }
 
-func (t *Targets) Includes(name string) bool {
+func (t *Targets) Include(name string) bool {
 	for _, n := range t.Names {
 		if n == name {
 			return true
@@ -66,7 +66,7 @@ func (t *Targets) Includes(name string) bool {
 func (t *Targets) Visit(node ast.Node) ast.Visitor {
 	switch n := node.(type) {
 	case *ast.TypeSpec:
-		if t.Includes(n.Name.Name) {
+		if t.Include(n.Name.Name) {
 			t.Nodes = append(t.Nodes, node)
 			return nil
 		}
