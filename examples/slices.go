@@ -1,6 +1,6 @@
 package examples
 
-//go:generate goderive Unique=github.com/reflexionhealth/goderive/traits/unique
+//go:generate goderive Unique=../traits/unique
 
 // [deriving(Unique)]
 type Integers []int
