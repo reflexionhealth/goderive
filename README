@@ -11,8 +11,8 @@ which can be used to experiment with goderive.
 
     //go:generate goderive Unique=github.com/reflexion/goderive/traits/unique
 
-    // [Derive(Unique)]
+    // [deriving(Unique)]
     type Integers []int
 
-    // [Derive(Unique)]
+    // [deriving(Unique)]
     type Strings []string
