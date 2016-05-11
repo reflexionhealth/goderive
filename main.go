@@ -81,6 +81,7 @@ func main() {
 			for _, goFile := range traitPkg.GoFiles {
 				args = append(args, filepath.Join(traitPkg.Dir, goFile))
 			}
+			args = append(args, "-pkg", pkg.Name)
 			args = append(args, "-files", strings.Join(uniqueStrings(files[trait]), ","))
 			args = append(args, "-names", strings.Join(uniqueStrings(identifiers[trait]), ","))
 
